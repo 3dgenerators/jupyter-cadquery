@@ -9,17 +9,15 @@ RUN apt-get -qq update && \
 COPY requirements.txt /tmp
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
-RUN useradd -d /home/workdir -s /bin/bash cq
 RUN mkdir /home/examples-read-only
 
 VOLUME /home/workdir/
 WORKDIR /home/
 EXPOSE 8888
 
-USER cq 
 
-ADD --chown=cq:cq examples /home/examples-read-only
-ADD --chown=cq:cq run.sh /tmp
+ADD examples /home/examples-read-only
+ADD run.sh /tmp
 RUN chmod +x /tmp/run.sh
 
 ENTRYPOINT ["/tmp/run.sh"]

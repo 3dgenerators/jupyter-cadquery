@@ -21,4 +21,4 @@ while getopts "dvgw:h:" o; do
 done
 
 echo "Starting in JupyterLab mode: http://localhost:8888/lab"
-jupyter lab --ip=0.0.0.0 --no-browser --NotebookApp.token='' --NotebookApp.allow_origin='*'
+jupyter lab --ip=0.0.0.0 --no-browser --NotebookApp.token='' --NotebookApp.allow_origin='*' --allow-root
